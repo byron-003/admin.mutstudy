@@ -9,12 +9,14 @@ import DashboardPage from './pages/DashboardPage';
 import UsersPage from './pages/UsersPage';
 import ResourcesPage from './pages/ResourcesPage';
 import MessagesPage from './pages/MessagesPage';
+import FeedbackPage from './pages/FeedbackPage';
 import ProgramsPage from './pages/ProgramsPage';
 import CoursesPage from './pages/CoursesPage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import ReportsPage from './pages/ReportsPage';
 import SettingsPage from './pages/SettingsPage';
 import NotificationsPage from './pages/NotificationsPage';
+import BannerPage from './pages/BannerPage';
 
 // Protected route wrapper
 const ProtectedRoute = ({ children, requireAdmin = false }) => {
@@ -80,6 +82,11 @@ function AppRoutes() {
             <MessagesPage />
           </ProtectedRoute>
         } />
+        <Route path="feedback" element={
+          <ProtectedRoute requireAdmin={true}>
+            <FeedbackPage />
+          </ProtectedRoute>
+        } />
         <Route path="programs" element={
           <ProtectedRoute requireAdmin={true}>
             <ProgramsPage />
@@ -95,6 +102,11 @@ function AppRoutes() {
         <Route path="notifications" element={
           <ProtectedRoute requireAdmin={true}>
             <NotificationsPage />
+          </ProtectedRoute>
+        } />
+        <Route path="banner" element={
+          <ProtectedRoute requireAdmin={true}>
+            <BannerPage />
           </ProtectedRoute>
         } />
         <Route path="settings" element={
